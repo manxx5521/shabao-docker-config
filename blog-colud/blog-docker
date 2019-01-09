@@ -34,7 +34,7 @@ RUN cd shabao-base-master && mvn install -q && cd .. && rm -rf shabao-base-maste
 
 RUN wget -q -O shabao-blog-master.zip https://codeload.github.com/manxx5521/shabao-blog/zip/master
 RUN unzip -q shabao-blog-master.zip && rm -rf shabao-blog-master.zip
-RUN cd shabao-blog-master/shabao-blog-core && mvn install -q && cd ../.. && rm -rf /app/shabao-blog-master
+RUN cd shabao-blog-master && mvn install -q && cd .. && rm -rf /app/shabao-blog-master
 
 RUN wget -q -O shabao-cloud-master.zip https://codeload.github.com/manxx5521/shabao-cloud/zip/master
 RUN unzip -q shabao-cloud-master.zip && rm -rf shabao-cloud-master.zip
