@@ -24,9 +24,9 @@ RUN echo $PATH && echo '完成安装maven'
 
 RUN apt-get update && apt-get install -y zip
 WORKDIR /app/
-RUN wget -q -O shabao-cloud.zip https://codeload.github.com/manxx5521/shabao-cloud/zip/master
-RUN unzip -q shabao-cloud.zip && rm -rf shabao-cloud.zip
-RUN cd shabao-cloud/shabao-cloud-center && mvn package && mv target/shabao-cloud-center-0.0.1.jar /app/ && cd ../.. && rm -rf shabao-cloud
+RUN wget -q -O shabao-cloud-master.zip https://codeload.github.com/manxx5521/shabao-cloud/zip/master
+RUN unzip -q shabao-cloud-master.zip && rm -rf shabao-cloud-master.zip
+RUN cd shabao-cloud-master/shabao-cloud-center && mvn package && mv target/shabao-cloud-center-0.0.1.jar /app/ && cd ../.. && rm -rf shabao-cloud-master
 
 WORKDIR /app/
 #删除多余的maven依赖
