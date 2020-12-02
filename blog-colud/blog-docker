@@ -45,4 +45,4 @@ WORKDIR /app/
 #删除多余的maven依赖
 RUN rm -rf /root/.m2 && rm -rf /usr/local/bin/${MAVEN_VERSION} && rm -rf /var/lib/apt/lists/*
 #容器启动时执行的命令
-ENTRYPOINT ["nohup","java","-Djava.security.egd=file:/dev/./urandom","-jar","shabao-cloud-blog-0.0.1.jar","--spring.profiles.active=prd"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","shabao-cloud-blog-0.0.1.jar","--spring.profiles.active=prd"]
