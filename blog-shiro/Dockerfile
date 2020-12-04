@@ -26,15 +26,15 @@ RUN apt-get update && apt-get install -y zip
 WORKDIR /app/
 RUN wget -q -O shabao-base-parent-master.zip https://codeload.github.com/manxx5521/shabao-base-parent/zip/master
 RUN unzip -q shabao-base-parent-master.zip && rm -rf shabao-base-parent-master.zip
-RUN cd shabao-base-parent-master && mvn install && cd .. && rm -rf shabao-base-parent-master && echo 'shabao-base-parent 安装完成'
+RUN cd shabao-base-parent-master && mvn install -q && cd .. && rm -rf shabao-base-parent-master && echo 'shabao-base-parent 安装完成'
 
 RUN wget -q -O shabao-base-master.zip https://codeload.github.com/manxx5521/shabao-base/zip/master
 RUN unzip -q shabao-base-master.zip && rm -rf shabao-base-master.zip
-RUN cd shabao-base-master && mvn install && cd .. && rm -rf shabao-base-master && echo 'shabao-base 安装完成'
+RUN cd shabao-base-master && mvn install -q && cd .. && rm -rf shabao-base-master && echo 'shabao-base 安装完成'
 
 RUN wget -q -O shabao-blog-master.zip https://codeload.github.com/manxx5521/shabao-blog/zip/master
 RUN unzip -q shabao-blog-master.zip && rm -rf shabao-blog-master.zip
-RUN cd shabao-blog-master/shabao-blog-core && mvn install -q && cd ..
+RUN cd shabao-blog-master/shabao-blog-core && mvn install && cd ..
 
 RUN cd /app/shabao-blog-master/shabao-blog-shiro && mvn package && mv target/shabao-blog-0.0.1.jar /app/ && rm -rf /app/shabao-blog-master
 RUN cd /app/ && mkdir data && cd data && mkdir upload && mkdir logs && mkdir indexs && echo 'shabao-blog 安装完成'
