@@ -35,6 +35,7 @@ RUN cd shabao-base-master && mvn install -q && cd .. && rm -rf shabao-base-maste
 RUN wget -q -O shabao-blog-master.zip https://codeload.github.com/manxx5521/shabao-blog/zip/master
 RUN unzip -q shabao-blog-master.zip && rm -rf shabao-blog-master.zip
 RUN cd shabao-blog-master && mvn install -q
+RUN ll
 RUN cd shabao-blog-core && mvn install && cd ..
 
 RUN cd /app/shabao-blog-master/shabao-blog-shiro && mvn package && mv target/shabao-blog-0.0.1.jar /app/ && rm -rf /app/shabao-blog-master
