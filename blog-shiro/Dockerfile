@@ -37,7 +37,8 @@ RUN unzip -q shabao-blog-master.zip && rm -rf shabao-blog-master.zip
 RUN cd shabao-blog-master && mvn install -q
 RUN cd /app/shabao-blog-master/shabao-blog-shiro && mvn install -q
 
-RUN cd /app/shabao-blog-master/shabao-blog-shiro && mvn package && mv target/shabao-blog-0.0.1.jar /app/ && rm -rf /app/shabao-blog-master
+RUN cd /app/shabao-blog-master/shabao-blog-shiro && mvn package
+RUN mv /app/shabao-blog-master/shabao-blog-shiro/target/shabao-blog-0.0.1.jar /app/ && rm -rf /app/shabao-blog-master
 RUN cd /app/ && mkdir data && cd data && mkdir upload && mkdir logs && mkdir indexs && echo 'shabao-blog 安装完成'
  
 WORKDIR /app/
