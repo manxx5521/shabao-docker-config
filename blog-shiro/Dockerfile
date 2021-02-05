@@ -39,11 +39,11 @@ RUN cd /app/shabao-blog-master/shabao-blog-shiro && mvn install -q
 
 RUN cd /app/shabao-blog-master/shabao-blog-shiro && mvn package
 RUN pwd && ls
-RUN mv /app/shabao-blog-master/shabao-blog-shiro/target/shabao-blog-0.0.1.jar /app/ && rm -rf /app/shabao-blog-master
+RUN mv /app/shabao-blog-master/shabao-blog-shiro/target/shabao-blog-shiro-0.0.1.jar /app/ && rm -rf /app/shabao-blog-master
 RUN cd /app/ && mkdir data && cd data && mkdir upload && mkdir logs && mkdir indexs && echo 'shabao-blog 安装完成'
  
 WORKDIR /app/
 #删除多余的maven依赖
 RUN rm -rf /root/.m2 && rm -rf /usr/local/bin/${MAVEN_VERSION} && rm -rf /var/lib/apt/lists/*
 #容器启动时执行的命令
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","shabao-blog-0.0.1.jar","--spring.profiles.active=prd"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","shabao-blog-shiro-0.0.1.jar","--spring.profiles.active=prd"]
